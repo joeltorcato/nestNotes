@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
-import { randomUUID } from 'crypto';
-import { Replace } from 'src/utils/replace';
+import { randomUUID } from 'crypto'; // Importa a função para gerar UUIDs.
+import { Replace } from 'src/utils/replace'; // Importa uma utilidade para substituir tipos.
 
-// eslint-disable-next-line prettier/prettier
+// Define a interface para os dados do usuário.
 interface IUser {
   name: string;
   email: string;
@@ -11,37 +11,48 @@ interface IUser {
 }
 
 export class User {
-  props: IUser;
-  _id: string;
+  props: IUser; // Propriedades do usuário.
+  _id: string; // ID do usuário.
 
   constructor(props: Replace<IUser, { createdAt?: Date }>, id?: string) {
+    // Inicializa as propriedades do usuário, definindo a data de criação se não fornecida.
     this.props = {
       ...props,
       createdAt: props.createdAt || new Date(),
     };
-    this._id = id || randomUUID(); // Nós vamos buscar o valor da class, não o valor do constructor.
+    this._id = id || randomUUID(); // Define o ID do usuário, gerando um novo se não fornecido.
   }
+
+  // Getter para o ID.
   get id(): string {
     return this._id;
   }
+
+  // Getter e setter para o nome.
   get name(): string {
     return this.props.name;
   }
   set name(name: string) {
     this.props.name = name;
   }
+
+  // Getter e setter para o email.
   get email(): string {
     return this.props.email;
   }
   set email(email: string) {
     this.props.email = email;
   }
+
+  // Getter e setter para a senha.
   get password(): string {
     return this.props.password;
   }
   set password(password: string) {
     this.props.password = password;
   }
+
+  // Getter e setter para a data de criação.
   get createdAt(): Date {
     return this.props.createdAt;
   }

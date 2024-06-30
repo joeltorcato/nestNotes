@@ -1,19 +1,19 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// Este é o seu arquivo de esquema do Prisma.
+// Saiba mais sobre ele na documentação: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client-js" // Especifica que o cliente gerado será para JavaScript/TypeScript.
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider = "sqlite" // Especifica que o banco de dados utilizado será SQLite.
+  url      = env("DATABASE_URL") // Obtém a URL do banco de dados a partir da variável de ambiente DATABASE_URL.
 }
 
-model User{
-  id String @id
-  name String
-  email String @unique
-  password String
-  createdAt DateTime
+model User {
+  id String @id // Campo 'id' do tipo String, marcado como chave primária.
+  name String // Campo 'name' do tipo String.
+  email String @unique // Campo 'email' do tipo String, marcado como único.
+  password String // Campo 'password' do tipo String.
+  createdAt DateTime // Campo 'createdAt' do tipo DateTime.
 }
