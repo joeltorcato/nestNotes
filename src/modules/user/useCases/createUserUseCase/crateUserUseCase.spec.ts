@@ -29,7 +29,7 @@ describe('Create User', () => {
 
   it('Should be able to create a new user with password encrypted', async () => {
     // Define uma senha sem encriptação.
-    const userPasswordWithoutEncryption = '5DEZEMBRO_';
+    const userPasswordWithoutEncryption = '1209';
 
     // Executa o caso de uso para criar um novo usuário com a senha fornecida.
     const user = await createUserUseCase.execute({
