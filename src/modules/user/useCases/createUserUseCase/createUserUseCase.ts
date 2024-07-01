@@ -24,5 +24,6 @@ export class CreateUserUseCase {
 
     // Chama o método para salvar o usuário no repositório.
     await this.userRepository.create(user);
+    return user; // Retorna o usuário criado.
   }
 }
